@@ -28,8 +28,11 @@ jobs:
         with:
           node-version: 24
 
+      - name: Remove Mac lockfile
+        run: rm -f package-lock.json
+
       - name: Install dependencies
-        run: npm install --no-package-lock
+        run: npm install
 
       - name: Build app
         run: npm run build
