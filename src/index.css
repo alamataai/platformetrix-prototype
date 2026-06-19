@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand — a refined slate-indigo rather than default blue */
+  --color-brand-50: 238 242 255;
+  --color-brand-100: 224 231 255;
+  --color-brand-500: 79 70 229;
+  --color-brand-600: 67 56 202;
+  --color-brand-700: 55 48 163;
+
+  /* Neutrals */
+  --color-surface: 255 255 255;
+  --color-canvas: 248 250 252;
+}
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-size: 15px;        /* slightly larger base for comfortable reading */
+    line-height: 1.5;
+  }
+  body {
+    @apply bg-canvas text-gray-800;
+  }
+  /* Tabular figures for numeric tables so digits align */
+  table {
+    font-feature-settings: 'tnum' 1;
+  }
+  /* Consistent, subtle focus ring for non-form elements (buttons, links, etc.) */
+  *:focus-visible {
+    outline: none;
+    @apply ring-2 ring-brand-500/40 ring-offset-1;
+  }
+}
+
+@layer components {
+  /* Form controls suppress the base *:focus-visible ring via outline-none utility.
+     This components-layer rule reinstates it at a layer that wins over base. */
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: none;
+    @apply ring-2 ring-brand-500/40 ring-offset-1;
+  }
+}
+
+/* Tab content fade-in */
+@keyframes tab-fade {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.tab-fade-in {
+  animation: tab-fade 150ms ease-out;
+}
+
+/* Save-button check icon pop */
+@keyframes check-pop {
+  0%   { transform: scale(1); }
+  45%  { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+.animate-check-pop {
+  animation: check-pop 350ms ease-out;
+}

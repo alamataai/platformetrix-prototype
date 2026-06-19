@@ -1,0 +1,10 @@
+{
+  "balanced_share_exponent": 40,
+  "ad_slot_seconds": 30,
+  "exposure_threshold": 0.001,
+  "probability_threshold": 0.20,
+  "sif_multiplier": 0.33,
+  "peak_multiplier": 1.5,
+  "reach_multiplier": 3.5,
+  "currency": "USD"
+}

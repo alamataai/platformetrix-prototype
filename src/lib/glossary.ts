@@ -1,0 +1,25 @@
+// One-line definitions for the domain terms shown in tables and forms.
+// Keep these short — they render inside hover tooltips.
+export const GLOSSARY: Record<string, string> = {
+  share_of_screen: 'Share of Screen (SoS): the brand box area as a fraction of the full frame (width×height ÷ frame area).',
+  balanced_share: 'Balanced Share of Screen (BSoS): SoS passed through a diminishing-returns curve so large logos do not dominate linearly.',
+  screen_position: 'Grid cell (A1–D4) of the detection centre; each cell carries a position weight.',
+  position_score: 'Weight for the screen position — central cells score higher than edges.',
+  clutter_score: 'Penalty for how many brands share the frame; a solus brand scores highest, crowded frames lowest.',
+  num_tags: 'Number of detections sharing the same frame (drives the clutter score).',
+  sif: 'Screen Impact Factor: balanced_share × clutter_score × position_score for a single detection.',
+  avg_sif: 'Average per-detection SIF across the rows grouped into this exposure.',
+  new_sif: 'SIF after applying the project SIF multiplier (sif_multiplier × avg SIF).',
+  sif_multiplier: 'Project-level scaler applied to the averaged SIF to produce New SIF (default 0.33).',
+  gross_seconds: 'Total on-screen seconds for this exposure (sum of per-detection durations).',
+  net_seconds: 'Quality-adjusted seconds: New SIF × gross seconds.',
+  eph: 'Exposure Per Hour: gross seconds normalised to a one-hour timeslice — (gross ÷ timeslice duration) × 3600.',
+  eph_current: 'EPH calculated by the system from the data.',
+  eph_proposed: 'Analyst-adjusted EPH = Differential × EPH (System).',
+  differential: 'Analyst multiplier on EPH (1.000 = no change). Values below 0.70 are flagged.',
+  probability: 'AI model confidence that the detection is the labelled brand.',
+  exclusion_reason: 'Why a detection was dropped from aggregation (e.g. below threshold, excluded timeslice, excluded by rule, pending tag).',
+  timeslice: 'A labelled time window of a video (e.g. "Final"); exposure is aggregated and normalised per timeslice.',
+  qa_status: 'QA outcome for the exposure these frames belong to — Audited out = flagged out of the finalised output; Adjusted = its differential was changed from 1.000 in the QA step.',
+  exposure_identifier: 'Display key "{partner} – {asset} – {timeslice}". Not used for grouping — that uses the structured fields.',
+}
