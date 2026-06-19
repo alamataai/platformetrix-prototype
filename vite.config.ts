@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  base: '/platformetrix-prototype/',
   server: {
     // Pin to a fixed port so localStorage (scoped per origin incl. port) stays stable.
     // strictPort fails loudly instead of drifting to another port and "losing" saved data.
